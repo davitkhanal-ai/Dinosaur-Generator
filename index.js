@@ -1,8 +1,8 @@
-const { response } = require('express');
-const express = require('express')
-require('dotenv').config()
+import express from 'express'
+import 'dotenv/config'
 const app = express()
 const port = 3000;
+import fetch from 'node-fetch'
 
 //serving files
 
@@ -14,10 +14,10 @@ app.listen(port, ()=>{
 
 
 //routes
-app.get("/dinoname", async(req,res) =>{
+app.get("/dinoname", async(req,response) =>{
     //coding stuff
     const fetchApi = await fetch(
-		'https://alexnormand-dino-ipsum.p.rapidapi.com/?paragraphs=1&words=2&format=json',
+		'https://dinoipsum.com/api/?format=json&words=2&paragraphs=2',
 		{
 			method: 'GET',
 			headers: {
